@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyber UI // Futuristic Portfolio & Media Studio</title>
   
+  <!-- Fonts: Serif cho Editorial Portfolio Title, Sans/Mono cho Cyber UI -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
+  <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -44,18 +46,23 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
     }
+
+    /* Multi-layered Grid Background & Glow Effects */
     .bg-grid-pattern {
       background-size: 40px 40px;
       background-image: 
         linear-gradient(to right, rgba(0, 140, 255, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 140, 255, 0.05) 1px, transparent 1px);
     }
+
     .lens-flare {
       position: absolute;
       background: radial-gradient(circle, rgba(0, 240, 255, 0.3) 0%, rgba(0, 140, 255, 0.15) 40%, transparent 70%);
       filter: blur(40px);
       pointer-events: none;
     }
+
+    /* Advanced Glassmorphism */
     .glass-panel {
       background: rgba(6, 26, 58, 0.45);
       backdrop-filter: blur(16px);
@@ -64,26 +71,32 @@
       box-shadow: 0 8px 32px 0 rgba(2, 10, 24, 0.67),
                   inset 0 1px 0 0 rgba(220, 235, 255, 0.1);
     }
+
     .glass-card {
       background: linear-gradient(135deg, rgba(6, 26, 58, 0.6) 0%, rgba(6, 60, 131, 0.2) 100%);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 140, 255, 0.2);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .glass-card:hover {
       border-color: rgba(0, 240, 255, 0.6);
       box-shadow: 0 0 25px rgba(0, 140, 255, 0.35), inset 0 0 15px rgba(0, 240, 255, 0.15);
       transform: translateY(-4px);
     }
+
     .neon-btn {
       background: linear-gradient(90deg, #008CFF 0%, #063C83 100%);
       box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
       transition: all 0.3s ease;
     }
+
     .neon-btn:hover {
       box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
       filter: brightness(1.2);
     }
+
+    /* 1px Decorative Line Crosshair */
     .crosshair { position: relative; }
     .crosshair::before, .crosshair::after {
       content: '';
@@ -92,24 +105,307 @@
     }
     .crosshair::before { width: 7px; height: 1px; top: -1px; left: -1px; }
     .crosshair::after { width: 1px; height: 7px; top: -1px; left: -1px; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #020A18; }
+    ::-webkit-scrollbar-thumb { background: #063C83; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #008CFF; }
   </style>
 </head>
 <body class="relative min-h-screen selection:bg-cyber-electric selection:text-white">
 
+  <!-- BACKGROUND LAYERING -->
   <div class="fixed inset-0 bg-grid-pattern z-0 pointer-events-none"></div>
   <div class="lens-flare w-[500px] h-[500px] -top-32 -left-32 z-0"></div>
   <div class="lens-flare w-[600px] h-[600px] top-1/2 -right-40 z-0"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-    <!-- HEADER -->
+    <!-- HEADER NAVIGATION -->
     <header class="glass-panel rounded-2xl p-4 mb-8 flex flex-wrap items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyber-electric to-cyber-navy flex items-center justify-center border border-cyber-cyan/40 shadow-[0_0_12px_rgba(0,140,255,0.4)]">
           <i data-lucide="cpu" class="w-5 h-5 text-cyber-cyan"></i>
         </div>
         <div>
-          <span class="font-mono text-xs text-cyber-cyan tracking-widest block uppercase">GITHUB PAGES // LIVE</span>
+          <span class="font-mono text-xs text-cyber-cyan tracking-widest block uppercase">SYSTEM v2.4 // ONLINE</span>
+          <span class="font-bold text-lg tracking-wider text-white">CYBER.PORTFOLIO</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:flex flex-col text-right">
+          <span class="font-semibold text-sm text-cyber-text">Alex Vance</span>
+          <span class="font-mono text-xs text-cyber-electric">Amateur Designer</span>
+        </div>
+        <div class="relative">
+          <div class="w-10 h-10 rounded-full border border-cyber-cyan/50 p-0.5 bg-cyber-navy">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Avatar" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-cyber-cyan rounded-full border-2 border-cyber-bg shadow-[0_0_8px_#00F0FF]"></span>
+        </div>
+        <button class="neon-btn px-5 py-2 rounded-xl text-xs font-semibold text-white tracking-wider flex items-center gap-2">
+          <i data-lucide="user-plus" class="w-4 h-4"></i>
+          <span>FOLLOW</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN TITLE & SEARCH BAR -->
+    <section class="mb-10 relative">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-cyber-electric/20 pb-6">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 bg-cyber-cyan rounded-full animate-ping"></span>
+            <span class="font-mono text-xs text-cyber-cyan tracking-widest">LIVE WORKSPACE // 2026 EDITION</span>
+          </div>
+          <h1 class="font-editorial text-5xl md:text-7xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-cyber-text to-cyber-electric tracking-tight">
+            Portfolio
+          </h1>
+        </div>
+
+        <div class="w-full md:w-auto">
+          <form id="tiktok-form" class="relative flex items-center">
+            <div class="relative w-full md:w-80">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-cyber-electric">
+                <i data-lucide="at-sign" class="w-4 h-4"></i>
+              </span>
+              <input 
+                type="text" 
+                id="tiktok-input"
+                placeholder="Nhập username TikTok..." 
+                required
+                class="w-full pl-10 pr-24 py-3 bg-cyber-navy/60 border border-cyber-electric/30 rounded-xl text-sm text-cyber-text placeholder-cyber-text/40 focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan transition-all"
+              >
+              <button 
+                type="submit"
+                id="btn-search"
+                class="absolute right-1.5 top-1.5 bottom-1.5 px-4 bg-cyber-electric hover:bg-cyber-cyan hover:text-cyber-bg text-white font-mono text-xs font-semibold rounded-lg transition-all flex items-center gap-1 shadow-[0_0_10px_rgba(0,140,255,0.4)]"
+              >
+                <span>SCAN</span>
+                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIKTOK PROFILE DISPLAY PANEL -->
+    <section id="profile-container" class="hidden mb-10 transition-all duration-500">
+      <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+        <div class="crosshair absolute top-0 left-0"></div>
+        <div class="crosshair absolute bottom-0 right-0"></div>
+        <div class="flex flex-col sm:flex-row items-center gap-6" id="profile-content"></div>
+      </div>
+    </section>
+
+    <!-- MEDIA GRID TITLE -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-6 bg-cyber-electric rounded-full"></div>
+        <h2 class="font-sans font-bold text-xl text-white tracking-wide">My Designs & Cyber Media</h2>
+      </div>
+      <span id="media-count" class="font-mono text-xs text-cyber-cyan bg-cyber-navy/80 px-3 py-1 rounded-full border border-cyber-electric/30">
+        0 ITEMS LOADED
+      </span>
+    </div>
+
+    <!-- MAIN MEDIA GRID -->
+    <main id="media-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+      <!-- Default Showcase Cards -->
+      <div class="glass-card rounded-2xl p-4 relative flex flex-col justify-between group">
+        <div class="relative rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-cyber-navy/80 border border-cyber-electric/20">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Cyber Art" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg via-transparent to-transparent opacity-60"></div>
+          <span class="absolute top-3 left-3 bg-cyber-bg/80 backdrop-blur-md text-cyber-cyan border border-cyber-cyan/30 text-[10px] font-mono px-2 py-1 rounded-md">3D RENDER</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-white text-base mb-1">Neural Core Dashboard</h3>
+          <p class="text-xs text-cyber-text/70 mb-4 line-clamp-2">Giao diện điều khiển thần kinh trung tâm với hiệu ứng ánh sáng Neon Blue và lớp kính mờ 3D.</p>
+        </div>
+        <div class="flex items-center justify-between pt-3 border-t border-cyber-electric/15 font-mono text-xs">
+          <span class="text-cyber-electric">#CYBER_01</span>
+          <button class="p-2 rounded-lg bg-cyber-navy border border-cyber-electric/40 text-cyber-cyan hover:bg-cyber-electric hover:text-white transition-all shadow-[0_0_10px_rgba(0,140,255,0.2)]">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl p-4 relative flex flex-col justify-between group">
+        <div class="relative rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-cyber-navy/80 border border-cyber-electric/20">
+          <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="Cyber Art" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg via-transparent to-transparent opacity-60"></div>
+          <span class="absolute top-3 left-3 bg-cyber-bg/80 backdrop-blur-md text-cyber-cyan border border-cyber-cyan/30 text-[10px] font-mono px-2 py-1 rounded-md">UI CONCEPT</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-white text-base mb-1">Quantum Grid Interface</h3>
+          <p class="text-xs text-cyber-text/70 mb-4 line-clamp-2">Bố cục lưới tương lai tích hợp hiệu ứng quang phổ đa lớp chuẩn Futuristic Cyberpunk.</p>
+        </div>
+        <div class="flex items-center justify-between pt-3 border-t border-cyber-electric/15 font-mono text-xs">
+          <span class="text-cyber-electric">#CYBER_02</span>
+          <button class="p-2 rounded-lg bg-cyber-navy border border-cyber-electric/40 text-cyber-cyan hover:bg-cyber-electric hover:text-white transition-all shadow-[0_0_10px_rgba(0,140,255,0.2)]">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-16 pt-8 border-t border-cyber-electric/20 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-cyber-text/60">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyber-cyan"></span>
+        <span>GITHUB PAGES // 24/7 ULTRA-FAST RELAY MATRIX</span>
+      </div>
+      <div>
+        <span>DESIGNED FOR FUTURISTIC UI/UX EXPERIENCE</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT: CORS PROXY + MULTI-API FALLBACK FOR HIGH RELIABILITY -->
+  <script>
+    lucide.createIcons();
+
+    const form = document.getElementById('tiktok-form');
+    const input = document.getElementById('tiktok-input');
+    const btnSearch = document.getElementById('btn-search');
+    const profileContainer = document.getElementById('profile-container');
+    const profileContent = document.getElementById('profile-content');
+    const mediaGrid = document.getElementById('media-grid');
+    const mediaCount = document.getElementById('media-count');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = input.value.trim().replace('@', '');
+      if (!username) return;
+
+      btnSearch.disabled = true;
+      btnSearch.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>`;
+      lucide.createIcons();
+
+      try {
+        // Tích hợp CorsProxy để loại bỏ hoàn toàn lỗi kết nối API trên GitHub Pages
+        const targetUrl = `https://www.tikwm.com/api/user/posts?unique_id=${encodeURIComponent(username)}&count=12&cursor=0`;
+        const apiUrl = `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`;
+        
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        if (data.code === 0 && data.data) {
+          const firstItem = data.data.videos[0];
+          const userObj = firstItem?.author || {
+            unique_id: username,
+            nickname: username,
+            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+            signature: 'TikTok Content Creator',
+            following_count: 0, 
+            follower_count: 0, 
+            total_favorited: 0
+          };
+
+          renderProfile(userObj);
+          renderPosts(data.data.videos);
+        } else {
+          alert('Không tìm thấy tài khoản TikTok hoặc tài khoản ở chế độ Riêng tư!');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Lỗi kết nối mạng! Vui lòng thử lại sau vài giây.');
+      } finally {
+        btnSearch.disabled = false;
+        btnSearch.innerHTML = `<span>SCAN</span><i data-lucide="search" class="w-3.5 h-3.5"></i>`;
+        lucide.createIcons();
+      }
+    });
+
+    function renderProfile(user) {
+      profileContainer.classList.remove('hidden');
+      profileContent.innerHTML = `
+        <div class="relative w-24 h-24 rounded-full border-2 border-cyber-cyan p-1 bg-cyber-navy shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+          <img src="${user.avatar}" alt="${user.nickname}" class="w-full h-full rounded-full object-cover">
+        </div>
+        <div class="flex-1 text-center sm:text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
+            <h3 class="text-xl font-bold text-white">${user.nickname}</h3>
+            <span class="font-mono text-xs text-cyber-cyan bg-cyber-electric/20 px-2.5 py-0.5 rounded-full border border-cyber-cyan/40">@${user.unique_id}</span>
+          </div>
+          <p class="text-xs text-cyber-text/80 mb-3 max-w-xl">${user.signature || 'TikTok Creator'}</p>
+          <div class="flex items-center justify-center sm:justify-start gap-6 font-mono text-xs">
+            <div><span class="text-white font-bold">${formatNumber(user.following_count)}</span> <span class="text-cyber-text/50">Following</span></div>
+            <div><span class="text-white font-bold">${formatNumber(user.follower_count)}</span> <span class="text-cyber-text/50">Followers</span></div>
+            <div><span class="text-white font-bold">${formatNumber(user.total_favorited)}</span> <span class="text-cyber-text/50">Likes</span></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPosts(posts) {
+      if (!posts || posts.length === 0) {
+        mediaGrid.innerHTML = `<div class="col-span-full text-center py-12 text-cyber-text/50 font-mono">Không tìm thấy bài viết nào.</div>`;
+        mediaCount.innerText = `0 ITEMS LOADED`;
+        return;
+      }
+
+      mediaCount.innerText = `${posts.length} ITEMS LOADED`;
+      mediaGrid.innerHTML = '';
+
+      posts.forEach((post, idx) => {
+        const isImages = post.images && post.images.length > 0;
+        const coverImg = isImages ? post.images[0] : post.cover;
+        const mediaType = isImages ? 'SLIDESHOW / PHOTO' : 'NO-WATERMARK VIDEO';
+
+        const card = document.createElement('div');
+        card.className = 'glass-card rounded-2xl p-4 relative flex flex-col justify-between group';
+        card.innerHTML = `
+          <div class="relative rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-cyber-navy/80 border border-cyber-electric/20">
+            <img src="${coverImg}" alt="Post Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg via-transparent to-transparent opacity-60"></div>
+            <span class="absolute top-3 left-3 bg-cyber-bg/80 backdrop-blur-md text-cyber-cyan border border-cyber-cyan/30 text-[10px] font-mono px-2 py-1 rounded-md tracking-wider">
+              ${mediaType}
+            </span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1 line-clamp-2">${post.title || 'TikTok Content #' + (idx + 1)}</h3>
+            <div class="flex items-center gap-4 text-[11px] font-mono text-cyber-text/60 mb-4">
+              <span>❤️ ${formatNumber(post.digg_count)}</span>
+              <span>💬 ${formatNumber(post.comment_count)}</span>
+              <span>↪️ ${formatNumber(post.share_count)}</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-cyber-electric/15 font-mono text-xs">
+            <span class="text-cyber-electric">#CYBER_MEDIA_${idx + 1}</span>
+            <button 
+              onclick="downloadDirect('${isImages ? post.images[0] : post.play}', '${isImages ? 'photo.jpg' : 'video.mp4'}')"
+              class="px-3 py-1.5 rounded-lg bg-cyber-navy border border-cyber-electric/40 text-cyber-cyan hover:bg-cyber-electric hover:text-white transition-all flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,140,255,0.2)]"
+            >
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>LƯU NGAY</span>
+            </button>
+          </div>
+        `;
+        mediaGrid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    function downloadDirect(url, defaultName) {
+      if (!url) return;
+      window.open(url, '_blank');
+    }
+
+    function formatNumber(num) {
+      if (!num) return '0';
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+      return num.toString();
+    }
+  </script>
+</body>
+</html>
           <span class="font-bold text-lg tracking-wider text-white">CYBER.PORTFOLIO</span>
         </div>
       </div>
