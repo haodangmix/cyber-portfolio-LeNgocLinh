@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber UI // Futuristic Portfolio & Media Studio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              bg: '#020A18',
+              navy: '#061A3A',
+              blue: '#063C83',
+              electric: '#008CFF',
+              cyan: '#00F0FF',
+              text: '#DCEBFF'
+            }
+          },
+          fontFamily: {
+            editorial: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #020A18;
+      color: #DCEBFF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 140, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 140, 255, 0.05) 1px, transparent 1px);
+    }
+    .lens-flare {
+      position: absolute;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.3) 0%, rgba(0, 140, 255, 0.15) 40%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .glass-panel {
+      background: rgba(6, 26, 58, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 140, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(2, 10, 24, 0.67),
+                  inset 0 1px 0 0 rgba(220, 235, 255, 0.1);
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(6, 26, 58, 0.6) 0%, rgba(6, 60, 131, 0.2) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 140, 255, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 240, 255, 0.6);
+      box-shadow: 0 0 25px rgba(0, 140, 255, 0.35), inset 0 0 15px rgba(0, 240, 255, 0.15);
+      transform: translateY(-4px);
+    }
+    .neon-btn {
+      background: linear-gradient(90deg, #008CFF 0%, #063C83 100%);
+      box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+      filter: brightness(1.2);
+    }
+    .crosshair { position: relative; }
+    .crosshair::before, .crosshair::after {
+      content: '';
+      position: absolute;
+      background: rgba(0, 240, 255, 0.4);
+    }
+    .crosshair::before { width: 7px; height: 1px; top: -1px; left: -1px; }
+    .crosshair::after { width: 1px; height: 7px; top: -1px; left: -1px; }
+  </style>
+</head>
+<body class="relative min-h-screen selection:bg-cyber-electric selection:text-white">
+
+  <div class="fixed inset-0 bg-grid-pattern z-0 pointer-events-none"></div>
+  <div class="lens-flare w-[500px] h-[500px] -top-32 -left-32 z-0"></div>
+  <div class="lens-flare w-[600px] h-[600px] top-1/2 -right-40 z-0"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- HEADER -->
+    <header class="glass-panel rounded-2xl p-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyber-electric to-cyber-navy flex items-center justify-center border border-cyber-cyan/40 shadow-[0_0_12px_rgba(0,140,255,0.4)]">
+          <i data-lucide="cpu" class="w-5 h-5 text-cyber-cyan"></i>
+        </div>
+        <div>
+          <span class="font-mono text-xs text-cyber-cyan tracking-widest block uppercase">GITHUB PAGES // LIVE</span>
+          <span class="font-bold text-lg tracking-wider text-white">CYBER.PORTFOLIO</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:flex flex-col text-right">
+          <span class="font-semibold text-sm text-cyber-text">Alex Vance</span>
+          <span class="font-mono text-xs text-cyber-electric">Amateur Designer</span>
+        </div>
+        <button class="neon-btn px-5 py-2 rounded-xl text-xs font-semibold text-white tracking-wider flex items-center gap-2">
+          <i data-lucide="user-plus" class="w-4 h-4"></i>
+          <span>FOLLOW</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- TITLE & SEARCH -->
+    <section class="mb-10 relative">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-cyber-electric/20 pb-6">
+        <div>
+          <h1 class="font-editorial text-5xl md:text-7xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-cyber-text to-cyber-electric tracking-tight">
+            Portfolio
+          </h1>
+        </div>
+
+        <div class="w-full md:w-auto">
+          <form id="tiktok-form" class="relative flex items-center">
+            <div class="relative w-full md:w-80">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-cyber-electric">
+                <i data-lucide="at-sign" class="w-4 h-4"></i>
+              </span>
+              <input 
+                type="text" 
+                id="tiktok-input"
+                placeholder="Nhập username TikTok..." 
+                required
+                class="w-full pl-10 pr-24 py-3 bg-cyber-navy/60 border border-cyber-electric/30 rounded-xl text-sm text-cyber-text placeholder-cyber-text/40 focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan transition-all"
+              >
+              <button 
+                type="submit"
+                id="btn-search"
+                class="absolute right-1.5 top-1.5 bottom-1.5 px-4 bg-cyber-electric hover:bg-cyber-cyan hover:text-cyber-bg text-white font-mono text-xs font-semibold rounded-lg transition-all flex items-center gap-1 shadow-[0_0_10px_rgba(0,140,255,0.4)]"
+              >
+                <span>SCAN</span>
+                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFILE PANEL -->
+    <section id="profile-container" class="hidden mb-10">
+      <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+        <div class="crosshair absolute top-0 left-0"></div>
+        <div class="crosshair absolute bottom-0 right-0"></div>
+        <div class="flex flex-col sm:flex-row items-center gap-6" id="profile-content"></div>
+      </div>
+    </section>
+
+    <!-- MEDIA MATRIX -->
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-sans font-bold text-xl text-white tracking-wide">My Designs & Cyber Media</h2>
+      <span id="media-count" class="font-mono text-xs text-cyber-cyan bg-cyber-navy/80 px-3 py-1 rounded-full border border-cyber-electric/30">
+        0 ITEMS
+      </span>
+    </div>
+
+    <main id="media-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glass-card rounded-2xl p-4 relative flex flex-col justify-between">
+        <div class="relative rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-cyber-navy/80">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Sample" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-semibold text-white text-base mb-1">Cyber Glassmorphism Concept</h3>
+        <p class="text-xs text-cyber-text/70 mb-4">Giao diện mẫu Cyberpunk với bảng màu Electric Blue.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const form = document.getElementById('tiktok-form');
+    const input = document.getElementById('tiktok-input');
+    const btnSearch = document.getElementById('btn-search');
+    const profileContainer = document.getElementById('profile-container');
+    const profileContent = document.getElementById('profile-content');
+    const mediaGrid = document.getElementById('media-grid');
+    const mediaCount = document.getElementById('media-count');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = input.value.trim().replace('@', '');
+      if (!username) return;
+
+      btnSearch.disabled = true;
+      btnSearch.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>`;
+      lucide.createIcons();
+
+      try {
+        // Direct Client-side API call for Static Hosting (GitHub Pages)
+        const apiUrl = `https://www.tikwm.com/api/user/posts?unique_id=${encodeURIComponent(username)}&count=12&cursor=0`;
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        if (data.code === 0 && data.data) {
+          const userObj = data.data.videos[0]?.author || {
+            unique_id: username,
+            nickname: username,
+            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+            signature: 'TikTok Creator',
+            following_count: 0, follower_count: 0, total_favorited: 0
+          };
+
+          renderProfile(userObj);
+          renderPosts(data.data.videos);
+        } else {
+          alert('Không tìm thấy tài khoản TikTok!');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Lỗi kết nối API!');
+      } finally {
+        btnSearch.disabled = false;
+        btnSearch.innerHTML = `<span>SCAN</span><i data-lucide="search" class="w-3.5 h-3.5"></i>`;
+        lucide.createIcons();
+      }
+    });
+
+    function renderProfile(user) {
+      profileContainer.classList.remove('hidden');
+      profileContent.innerHTML = `
+        <div class="relative w-20 h-20 rounded-full border-2 border-cyber-cyan p-1 bg-cyber-navy">
+          <img src="${user.avatar}" alt="${user.nickname}" class="w-full h-full rounded-full object-cover">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-xl font-bold text-white">${user.nickname} <span class="text-xs font-mono text-cyber-cyan">@${user.unique_id}</span></h3>
+          <p class="text-xs text-cyber-text/80 my-1">${user.signature || ''}</p>
+        </div>
+      `;
+    }
+
+    function renderPosts(posts) {
+      mediaCount.innerText = `${posts.length} ITEMS LOADED`;
+      mediaGrid.innerHTML = '';
+
+      posts.forEach((post, idx) => {
+        const isImages = post.images && post.images.length > 0;
+        const coverImg = isImages ? post.images[0] : post.cover;
+        const mediaType = isImages ? 'SLIDESHOW' : 'VIDEO (NO WATERMARK)';
+
+        const card = document.createElement('div');
+        card.className = 'glass-card rounded-2xl p-4 relative flex flex-col justify-between group';
+        card.innerHTML = `
+          <div class="relative rounded-xl overflow-hidden mb-4 aspect-[4/3] bg-cyber-navy/80">
+            <img src="${coverImg}" class="w-full h-full object-cover">
+            <span class="absolute top-2 left-2 bg-cyber-bg/80 text-cyber-cyan text-[10px] font-mono px-2 py-0.5 rounded border border-cyber-cyan/30">${mediaType}</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-2 line-clamp-2">${post.title || 'TikTok Media #' + (idx + 1)}</h3>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-cyber-electric/15">
+            <span class="text-xs font-mono text-cyber-electric">#CYBER_${idx + 1}</span>
+            <button 
+              onclick="downloadDirect('${isImages ? post.images[0] : post.play}', '${isImages ? 'photo.jpg' : 'video.mp4'}')"
+              class="px-3 py-1 rounded-lg bg-cyber-navy border border-cyber-electric/40 text-cyber-cyan hover:bg-cyber-electric hover:text-white text-xs font-mono flex items-center gap-1"
+            >
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>LƯU NGAY</span>
+            </button>
+          </div>
+        `;
+        mediaGrid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    function downloadDirect(url, defaultName) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.download = defaultName;
+      a.click();
+    }
+  </script>
+</body>
+</html>
